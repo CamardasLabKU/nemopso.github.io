@@ -1,26 +1,46 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Conventional Process</title>
+		<title>SnAr Reactor</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] } };</script>
+		<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 	</head>
 	<body class="left-sidebar is-preload">
 		<div id="page-wrapper">
 			<!-- Header -->
 				<header id="header">
-					<h1 id="logo"><a href="index.html">Urea <span>production</span></a></h1>
-					<nav id="nav">
+					<h1 id="logo"><a href="index.html">NEMOPSO</a></h1>
+<nav id="nav">
 						<ul>
 							<li class="current"><a href="index.html">Home</a></li>
 							<li class="submenu">
-								<a href="#">Layouts</a>
+								<a href="#">Benchmarks</a>
 								<ul>
-									<li><a href="left-sidebar.html">Conventional Case</a>
+									<li class="submenu"><a href="zdt1.html">ZDT1</a>
 									</li>
-									<li><a href="right-sidebar.html">Proposed Case</a>
+									<li class="submenu"><a href="zdt2.html">ZDT2</a>
+									</li>
+									<li class="submenu"><a href="zdt3.html">ZDT3</a>
+									</li>
+									<li class="submenu"><a href="zdt4.html">ZDT4</a>
+									</li>
+									<li class="submenu"><a href="zdt6.html">ZDT6</a>
+									</li>
+								</ul>
+							</li>
+							<li class="submenu">
+								<a href="#">ChemE Applicaitons</a>
+								<ul>
+									<li class="submenu"><a href="LDPE.html">LDPE Reactor</a>
+									</li>
+									<li class="submenu"><a href="Distillation.html">Distillation Column</a>
+									</li>
+									<li class="submenu"><a href="TRM.html">Tri-Methane Reforming</a>
+									</li>
+									<li class="submenu"><a href="Snar.html">Nucleophilic Substitution</a>
 									</li>
 								</ul>
 							</li>
@@ -31,92 +51,77 @@
 			<!-- Main -->
 				<article id="main">
 					<header class="special container">
-						<span class="icon solid fa-industry"></span>
-						<h2><strong>Conventional</strong> process</h2>
+						<h2><strong>SnAr Reaction Optimization</strong></h2>
 					</header>
 			<!-- One -->
 						<section class="wrapper style2 container special-alt">
 							<div class="row gtr-50">
 								<div class="col-8 col-12-narrower">
 									<header>
-										<h2><strong>Complete conventional process PFD</strong></h2>
+										<h2><strong>Optimization Problem</strong></h2>
 									</header>
 								</div>
 								<div>
 									<section>
-										<a href="#" class="image featured"><img src="images/Complete PFD.svg" alt="" /></a>
+										<div class="cs-math">
+											\[
+											\begin{aligned}
+											\min_{t_{res},\,\text{eq}_{morph},\,C_{DFNB},\,T}\quad & \left\{\, -\,\text{STY},\;\; E_{factor} \,\right\} \\[4pt]
+											\text{s.t.}\quad & 0.5\ \text{min} < t_{res} < 2\ \text{min} \\
+											& 1\ \text{eq} < \text{Morpholine} < 5\ \text{eq} \\
+											& 0.1\ \text{M} < C_{DFNB} < 0.5\ \text{M} \\
+											& 60\ ^\circ\text{C} < T < 140\ ^\circ\text{C}
+											\end{aligned}
+											\]
+											\[
+											E_{factor} = \frac{m_{\text{undesired products}}}{m_{\text{o-FNM}}}
+											\]
+										</div>
 									</section>
 
 							<div class="row gtr-50">
 								<div class="col-8 col-12-narrower">
 									<header>
-										<h2><strong>Air Separation Unit</strong></h2>
+										<h2><strong>Variables</strong></h2>
 									</header>
 								</div>
 								<div>
 									<section>
-										<a href="#" class="image featured"><img src="images/ASU PFD.svg" alt="" /></a>
+										<table class="cs-vars">
+										<tr><th>Symbol</th><th>Description</th></tr>
+										<tr><td>\(t_{res}\)</td><td>Residence time (decision)</td></tr>
+										<tr><td>Morpholine</td><td>Morpholine equivalents (decision)</td></tr>
+										<tr><td>\(C_{DFNB}\)</td><td>DFNB concentration (decision)</td></tr>
+										<tr><td>\(T\)</td><td>Reaction temperature (decision)</td></tr>
+										<tr><td>STY</td><td>Space-time yield</td></tr>
+									</table>
 									</section>
 
+							<div class="row gtr-50">
 								<div class="col-8 col-12-narrower">
 									<header>
-										<h2><strong>Electrolyzer</strong></h2>
+										<h2><strong>Pareto Front</strong></h2>
 									</header>
 								</div>
 								<div>
 									<section>
-										<a href="#" class="image featured"><img src="images/Electrolyzer.svg" alt="" /></a>
+										<a href="#" class="image featured"><img src="images/Figure_4.png" alt="" /></a>
+									</section>
+							
+							<div class="row gtr-50">
+								<div class="col-8 col-12-narrower">
+									<header>
+										<h2><strong>Source problem</strong></h2>
+									</header>
+								</div>
+								<div>
+									<section>
+										<p class="cs-ref">Schweidtmann, A.M., Clayton, A.D., Holmes, N., Bradford, E., Bourne, R.A., Lapkin, A.A. (2018).
+										Machine learning meets continuous flow chemistry: Automated optimization towards the Pareto front of multiple objectives.
+										<em>Chemical Engineering Journal</em>, 352, 277–282.
+										<a href="https://doi.org/10.1016/J.CEJ.2018.07.031" target="_blank" rel="noopener">doi:10.1016/J.CEJ.2018.07.031</a></p>
 									</section>
 
-								<div class="col-8 col-12-narrower">
-									<header>
-										<h2><strong>NH<sub>3</sub> PFR Reactor</strong></h2>
-									</header>
-								</div>
-								<div>
-									<section>
-										<a href="#" class="image featured"><img src="images/NH3 PFR PFD.svg" alt="" /></a>
-									</section>
-
-								<div class="col-8 col-12-narrower">
-									<header>
-										<h2><strong>Post-Combustion Capture Unit</strong></h2>
-									</header>
-								</div>
-								<div>
-									<section>
-										<a href="#" class="image featured"><img src="images\Drawing1_page-0001.jpg" alt="" /></a>
-									</section>
-
-								<div class="col-8 col-12-narrower">
-									<header>
-										<h2><strong>Multistage Compression Unit</strong></h2>
-									</header>
-								</div>
-								<div>
-									<section>
-										<a href="#" class="image featured"><img src="images\Multistage compression PFD.svg" alt="" /></a>
-									</section>
-
-								<div class="col-8 col-12-narrower">
-									<header>
-										<h2><strong>Urea Production Unit</strong></h2>
-									</header>
-								</div>
-								<div>
-									<section>
-										<a href="#" class="image featured"><img src="images/Urea production PFD.svg" alt="" /></a>
-									</section>
-
-								<div class="col-8 col-12-narrower">
-									<header>
-										<h2><strong>Urea Granulation Unit</strong></h2>
-									</header>
-								</div>
-								<div>
-									<section>
-										<a href="#" class="image featured"><img src="images/Urea granulation PFD.svg" alt="" /></a>
-									</section>
 						</section>
 
 				</article>
@@ -125,14 +130,6 @@
 					<div style="display: flex; align-items: center; justify-content: center;">
 						<ul class="icons">
 							<li>
-								<a href="https://www.fcnm.espol.edu.ec/" target="_blank" class="icon brands circle">
-									<img src="https://www.fcnm.espol.edu.ec/sites/all/themes/fcnm/favicon.ico"  class="icon brands circle" alt="Icon">
-								</a>
-							</li>
-
-							<li></li>
-
-							<li>
 								<a href="https://ku.edu/" target="_blank" class="icon brands circle">
 									<img src="images/Untitled design.png" class="icon brands circle" alt="Icon">
 								</a>
@@ -140,7 +137,7 @@
 						</ul>
 					</div>
 					<ul class="copyright">
-						<li>&copy; 2023 FCO2U All rights reserved.</li><li>Design: <a href="https://github.com/zeafernando">Fernando Zea</a></li>
+						<li>&copy; 2026 Camarda's Research Lab All rights reserved.</li><li>Design: <a href="https://github.com/zeafernando">Fernando Zea</a></li>
 					</ul>
 				</footer>
 
